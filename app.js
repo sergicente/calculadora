@@ -42,30 +42,70 @@ botonesNumericos.forEach(boton => {
 });
 
 botonSumar.addEventListener('click', ()=> {
-    valor1 = parseFloat(contenidoPantalla);
-    operacion = 'suma';
-    contenidoPantalla = '';
-    botonSumar.classList.add('seleccion')
+    if(operacion!==null){
+        contenidoPantalla = valor1;
+        botonRestar.classList.remove('seleccion');
+        botonMultiplicar.classList.remove('seleccion');
+        botonDividir.classList.remove('seleccion');
+        operacion = 'suma';
+        contenidoPantalla = 0;
+        botonSumar.classList.add('seleccion');
+    }else{
+        valor1 = parseFloat(contenidoPantalla);
+        operacion = 'suma';
+        contenidoPantalla = 0;
+        botonSumar.classList.add('seleccion');
+    }
 });
 botonRestar.addEventListener('click', ()=> {
-    valor1 = parseFloat(contenidoPantalla);
-    operacion = 'resta';
-    contenidoPantalla = '';
-    botonRestar.classList.add('seleccion')
+    if(operacion!==null){
+        contenidoPantalla = valor1;
+        botonSumar.classList.remove('seleccion');
+        botonMultiplicar.classList.remove('seleccion');
+        botonDividir.classList.remove('seleccion');
+        operacion = 'resta';
+        contenidoPantalla = 0;
+        botonRestar.classList.add('seleccion');
+    }else{
+        valor1 = parseFloat(contenidoPantalla);
+        operacion = 'resta';
+        contenidoPantalla = 0;
+        botonRestar.classList.add('seleccion');
+    }
 });
 
 botonMultiplicar.addEventListener('click', ()=> {
-    valor1 = parseFloat(contenidoPantalla);
-    operacion = 'multiplicar';
-    contenidoPantalla = '';
-    botonMultiplicar.classList.add('seleccion')
+    if(operacion!==null){
+        contenidoPantalla = valor1;
+        botonSumar.classList.remove('seleccion');
+        botonRestar.classList.remove('seleccion');
+        botonDividir.classList.remove('seleccion');
+        operacion = 'multiplicar';
+        contenidoPantalla = 0;
+        botonMultiplicar.classList.add('seleccion');
+    }else{
+        valor1 = parseFloat(contenidoPantalla);
+        operacion = 'multiplicar';
+        contenidoPantalla = 0;
+        botonMultiplicar.classList.add('seleccion');
+    }
 });
 
 botonDividir.addEventListener('click', ()=> {
-    valor1 = parseFloat(contenidoPantalla);
-    operacion = 'dividir';
-    contenidoPantalla = '';
-    botonDividir.classList.add('seleccion')
+    if(operacion!==null){
+        contenidoPantalla = valor1;
+        botonSumar.classList.remove('seleccion');
+        botonRestar.classList.remove('seleccion');
+        botonMultiplicar.classList.remove('seleccion');
+        operacion = 'dividir';
+        contenidoPantalla = 0;
+        botonDividir.classList.add('seleccion');
+    }else{
+        valor1 = parseFloat(contenidoPantalla);
+        operacion = 'dividir';
+        contenidoPantalla = 0;
+        botonDividir.classList.add('seleccion');
+    }
 });
 
 botonInvertir.addEventListener('click', ()=> {
@@ -85,6 +125,10 @@ botonReset.addEventListener('click', ()=> {
     valor1 = null;
     valor2 = null;
     operacion = null;
+    botonSumar.classList.remove('seleccion');
+    botonRestar.classList.remove('seleccion')
+    botonMultiplicar.classList.remove('seleccion')
+    botonDividir.classList.remove('seleccion')
     actualizarPantalla();
 });
 
