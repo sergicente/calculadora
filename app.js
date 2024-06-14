@@ -40,6 +40,7 @@ botonesNumericos.forEach(boton => {
         }
     });
 });
+
 botonSumar.addEventListener('click', ()=> {
     valor1 = parseFloat(contenidoPantalla);
     operacion = 'suma';
@@ -52,28 +53,33 @@ botonRestar.addEventListener('click', ()=> {
     contenidoPantalla = '';
     botonRestar.classList.add('seleccion')
 });
+
 botonMultiplicar.addEventListener('click', ()=> {
     valor1 = parseFloat(contenidoPantalla);
     operacion = 'multiplicar';
     contenidoPantalla = '';
     botonMultiplicar.classList.add('seleccion')
 });
+
 botonDividir.addEventListener('click', ()=> {
     valor1 = parseFloat(contenidoPantalla);
     operacion = 'dividir';
     contenidoPantalla = '';
     botonDividir.classList.add('seleccion')
 });
+
 botonInvertir.addEventListener('click', ()=> {
     contenidoPantalla = contenidoPantalla*(-1);
     actualizarPantalla();
 });
+
 botonComa.addEventListener('click', ()=> {
     if (!contenidoPantalla.includes('.')) {
         contenidoPantalla += '.';
         actualizarPantalla();
     }
 });
+
 botonReset.addEventListener('click', ()=> {
     contenidoPantalla = 0;
     valor1 = null;
@@ -81,6 +87,7 @@ botonReset.addEventListener('click', ()=> {
     operacion = null;
     actualizarPantalla();
 });
+
 botonPorcentaje.addEventListener('click', () => {
     if (contenidoPantalla !== '' && valor1 !== null) {
         valor2 = parseFloat(contenidoPantalla) / 100 * valor1;
@@ -91,6 +98,7 @@ botonPorcentaje.addEventListener('click', () => {
         actualizarPantalla();
     }
 });
+
 botonIgual.addEventListener('click', ()=> {
     valor2 = parseFloat(contenidoPantalla);
     switch(operacion){
@@ -115,6 +123,10 @@ botonIgual.addEventListener('click', ()=> {
     botonRestar.classList.remove('seleccion')
     botonMultiplicar.classList.remove('seleccion')
     botonDividir.classList.remove('seleccion')
+});
+
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
 });
 
 
