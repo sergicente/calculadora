@@ -146,8 +146,8 @@ function actualizarPantalla(){
     }
 
     if(contenidoPantalla === '' || (contenidoPantalla == '0' && valor1 == null && operacion == null)) {
-        botonReset.innerText = 'ACC';
+        botonReset.innerText = 'AC';
     }else{
-        botonReset.innerText = 'CC';
+        botonReset.innerText = 'C';
     }
 }
